@@ -14,14 +14,14 @@ func main() {
     fmt.Println("Min = ", min)
     fmt.Println("Max = ", max)
     fmt.Println("Average = ", average)
-
+    fmt.Print(bubbleSort(arrayOfNumbers), "\n")
     testPackages()
 }
 
-func findMinAndMax(a []int) (min int, max int) {
-	min = a[0]
-    max = a[0]
-	for _, value := range a {
+func findMinAndMax(array []int) (min int, max int) {
+	min = array[0]
+    max = array[0]
+	for _, value := range array {
 		if value < min {
 			min = value
 		}
@@ -32,10 +32,26 @@ func findMinAndMax(a []int) (min int, max int) {
 	return min, max
 }
 
-func findAverage(xs []int) int {
+func findAverage(array []int) int {
     total := int(0)
-    for _, x := range xs {
-      total += x
+    for _, value := range array {
+      total += value
     }
-    return total / int(len(xs))
+    return total / int(len(array))
 }
+
+func bubbleSort(array []int) []int {
+    arrayLength := len(array)
+
+    for i := 0; i < arrayLength-1; i++ {
+        for j := 0; j < arrayLength-i-1; j++ {
+            if array[j] > array[j+1]{
+                temp := array[j]
+                array[j] = array[j+1]
+                array[j+1] = temp
+            }
+        }
+    }
+    return array
+}
+
