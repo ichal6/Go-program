@@ -8,18 +8,18 @@ import "fmt"
 //Implement a main function to print a message to the console.
 //A main function executes by default when you run code in the file.
 
-var sizeOfArray int = 10
+const sizeOfArray int = 10
 
 func main() {
-    arrayOfNumber := [10]int{2 ,6, 9, 8, 20, 15, 3, 5, 6, 9}
+    arrayOfNumber := [sizeOfArray]int{2 ,6, 9, 8, 20, 15, 3, 5, 6, 9}
     min, max := findMinAndMax(arrayOfNumber)
-    fmt.Print("Min = ")
-    fmt.Println(min)
-    fmt.Print("Max = ")
-    fmt.Println(max)
+    average := findAverage(arrayOfNumber)
+    fmt.Println("Min = ", min)
+    fmt.Println("Max = ", max)
+    fmt.Println("Average = ", average)
 }
 
-func findMinAndMax(a [10]int) (min int, max int) {
+func findMinAndMax(a [sizeOfArray]int) (min int, max int) {
 	min = a[0]
     max = a[0]
 	for _, value := range a {
@@ -31,4 +31,12 @@ func findMinAndMax(a [10]int) (min int, max int) {
         }
 	}
 	return min, max
+}
+
+func findAverage(xs [sizeOfArray]int) int {
+    total := int(0)
+    for _, x := range xs {
+      total += x
+    }
+    return total / int(len(xs))
 }
