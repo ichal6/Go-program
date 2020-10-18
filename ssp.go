@@ -13,7 +13,9 @@ func testPackages() {
 	sort.Ints(arrayOfNumbers)
     min := arrayOfNumbers[0]
     max := arrayOfNumbers[len(arrayOfNumbers)-1]
+    fmt.Println("\nBuilt in functions:")
     fmt.Println("Min = ", min)
     fmt.Println("Max = ", max)
+    fmt.Print(arrayOfNumbers)
 }
 
